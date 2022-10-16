@@ -2,7 +2,7 @@
 
 FPM Blank Package Template Repo
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/fifthtry/fpm-heroku&env[DOWNLOAD_BASE_URL]=https://raw.githubusercontent.com/fifthtry/form/main/)
+;[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/fifthtry/fpm-heroku&env[DOWNLOAD_BASE_URL]=https://raw.githubusercontent.com/fifthtry/form/main/)
 
 
 > 🧑‍🚀 **Seasoned traveler?** update this file. Enjoy!
@@ -15,7 +15,7 @@ FPM Blank Package Template Repo
 Inside of your FPM project, you'll see the following folders and files:
 
 ```
-/
+.
 ├── .build/
 │   └── index.html
 ├── .packages/
