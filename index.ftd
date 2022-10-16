@@ -1,4 +1,242 @@
 -- import: fifthtry.github.io/form/assets
+-- import: fifthtry.github.io/package-doc/doc as pd
+
+-- boolean is-mobile: false
+
+-- is-mobile:true
+if: $ftd.device == mobile
 
 
 
+
+-- ft.page: Form elements & usage
+
+Form has multiple elements for e.g. `input`, `textarea`, `checkbox` `radio` etc.
+We have designed these form elements using FTD for you.
+
+
+
+
+-- pd.package: `input-box` and it's Usage
+name: fifthtry.github.io/form
+
+To use `input-box` on your web package, add below into `FPM.ftd` file:
+
+-- cb.code:
+lang: ftd
+
+\-- fpm.dependency: fifthtry.github.io/form as form
+\-- fpm.auto-import: form
+
+
+
+
+
+-- tf.markdown:
+
+Once you add above lines into your web package, add `input-box` into your `.ftd` 
+files:
+
+-- cb.code: Example code for `-- input-box`
+lang: ftd
+
+\-- form.input-box: Label as title
+$value: some default value
+$error: This field is mandatory
+placeholder: Add title here
+
+
+
+
+
+
+-- tf.h3: Basic example:
+
+
+
+
+
+-- input-box: Title
+$value: some default value
+$error: This field is mandatory
+placeholder: Add title here
+
+
+-- tf.h3: Advanced example:
+
+In this advanced example you can change label position to top via adding new 
+attribute as `label-top: true`
+
+-- cb.code: Example code for `-- input-box`
+lang: ftd
+
+\-- form.input-box: Label as title
+$value: some default value
+$error: This field is mandatory
+placeholder: Add title here
+label-top: true
+
+
+-- tf.h3: Output of above example:
+
+
+-- input-box: Title
+$value: some default value
+$error: This field is mandatory
+placeholder: Add title here
+label-top: true
+
+
+
+
+
+
+-- tf.h3: Textarea example:
+
+Just add attribute as `multiline: true` and `height: 100`. This will create a
+ `textarea` with height of `100px` on your FTD page.
+
+-- cb.code: Example code for `-- input-box`
+lang: ftd
+
+\-- form.input-box: Label as title
+$value: some default value
+$error: This field is mandatory
+placeholder: Add title here
+label-top: true
+multiline: true
+height: 100
+
+
+-- tf.h3: Output of above example:
+
+
+-- input-box: Title
+$value: some default value
+$error: This field is mandatory
+placeholder: Add title here
+label-top: true
+multiline: true
+height: 100
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;; Input Box with Label
+-- ftd.column input-box:
+caption label:
+optional string placeholder:
+optional string $value:
+optional string $error:
+boolean label-top: false
+boolean multiline: false
+string width: 400
+string height: 40
+margin-top: $fpm.space.space-6
+color: $fpm.color.main.text
+width if $is-mobile: fill
+
+--- ftd.row:
+if: not $label-top
+width: fill
+
+;; Input Box Label
+--- ftd.text: $label
+role: $fpm.type.copy-large
+text-align: right
+min-width if not $is-mobile: 120
+min-width if $is-mobile: 100
+
+;; Input Box
+--- ftd.input:
+placeholder: $placeholder
+padding-horizontal: 16
+padding-vertical: 8
+margin-left: $fpm.space.space-4
+width if not $is-mobile: $width
+width if $is-mobile: 200
+height: $height
+border-width: 1
+border-color: $fpm.color.main.border
+border-radius: 8
+multiline: $multiline
+$on-input$: $value=$VALUE
+$on-focus$: $error=
+role: $fpm.type.copy-tight
+
+--- container: ftd.main
+
+--- ftd.column:
+if: $label-top
+width: fill
+
+;; Input Box Label
+--- ftd.text: $label
+role: $fpm.type.copy-large
+padding-left if not $is-mobile: $fpm.space.space-4
+
+;; Input Box
+--- ftd.input:
+placeholder: $placeholder
+padding-horizontal: 16
+padding-vertical: 8
+margin-left if not $is-mobile: $fpm.space.space-4
+width if not $is-mobile: $width
+width if $is-mobile: fill
+height: $height
+border-width: 1
+border-color: $fpm.color.main.border
+border-radius: 8
+multiline: $multiline
+$on-input$: $value=$VALUE
+$on-focus$: $error=
+
+--- container: ftd.main
+
+;; input error
+--- ftd.text: $error
+if: not $is-mobile
+role: $fpm.type.copy-relaxed
+padding-left if not $is-mobile: $fpm.space.space-4
+color: $fpm.color.main.error.text
+padding-left if not $label-top: 136
+margin-top: $fpm.space.space-1
+
+--- container: ftd.main
+
+;; input error
+--- ftd.text: $error
+if: $is-mobile
+role: $fpm.type.copy-relaxed
+color: $fpm.color.main.error.text
+padding-left if not $label-top: 116
+margin-top: $fpm.space.space-1
