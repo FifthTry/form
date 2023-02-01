@@ -1,10 +1,10 @@
 -- import: fifthtry.github.io/form/assets
 -- import: fifthtry.github.io/package-doc/doc as pd
 
--- boolean is-mobile: false
+-- boolean $is-mobile: false
 
--- is-mobile:true
-if: $ftd.device == mobile
+-- $is-mobile:true
+if: { ftd.device == mobile }
 
 
 
@@ -56,7 +56,7 @@ placeholder: Add title here
 
 
 
--- input-box: Title
+/-- input-box: Title
 $value: some default value
 $error: This field is mandatory
 placeholder: Add title here
@@ -80,7 +80,7 @@ label-top: true
 -- tf.h3: Output of above example:
 
 
--- input-box: Title
+/-- input-box: Title
 $value: some default value
 $error: This field is mandatory
 placeholder: Add title here
@@ -111,7 +111,7 @@ height: 100
 -- tf.h3: Output of above example:
 
 
--- input-box: Title
+/-- input-box: Title
 $value: some default value
 $error: This field is mandatory
 placeholder: Add title here
@@ -120,7 +120,7 @@ multiline: true
 height: 100
 
 
-
+-- end: ft.page
 
 
 
@@ -152,7 +152,7 @@ height: 100
 
 
 ;; Input Box with Label
--- ftd.column input-box:
+/-- ftd.column input-box:
 caption label:
 optional string placeholder:
 optional string $value:
@@ -165,19 +165,19 @@ margin-top: $fastn.space.space-6
 color: $fastn.color.main.text
 width if $is-mobile: fill
 
---- ftd.row:
+/--- ftd.row:
 if: not $label-top
 width: fill
 
 ;; Input Box Label
---- ftd.text: $label
+/--- ftd.text: $label
 role: $fastn.type.copy-tight
 text-align: right
 min-width if not $is-mobile: 120
 min-width if $is-mobile: 100
 
 ;; Input Box
---- ftd.input:
+/--- ftd.input:
 placeholder: $placeholder
 padding-horizontal: 16
 padding-vertical: 8
@@ -192,20 +192,20 @@ $on-input$: $value=$VALUE
 $on-focus$: $error=
 role: $fastn.type.copy-tight
 
---- container: ftd.main
+/--- container: ftd.main
 
---- ftd.column:
+/--- ftd.column:
 if: $label-top
 width: fill
 spacing: 8
 
 ;; Input Box Label
---- ftd.text: $label
+/--- ftd.text: $label
 role: $fastn.type.copy-tight
 padding-left if not $is-mobile: $fastn.space.space-2
 
 ;; Input Box
---- ftd.input:
+/--- ftd.input:
 placeholder: $placeholder
 padding-horizontal: 16
 padding-vertical: 8
@@ -220,20 +220,20 @@ $on-input$: $value=$VALUE
 $on-focus$: $error=
 role: $fastn.type.copy-tight
 
---- container: ftd.main
+/--- container: ftd.main
 
 ;; input error
---- ftd.text: $error
+/--- ftd.text: $error
 if: not $is-mobile
 role: $fastn.type.copy-relaxed
 padding-left if not $is-mobile: $fastn.space.space-2
 color: $fastn.color.main.error.text
 margin-top: $fastn.space.space-1
 
---- container: ftd.main
+/--- container: ftd.main
 
 ;; input error
---- ftd.text: $error
+/--- ftd.text: $error
 if: $is-mobile
 role: $fastn.type.copy-relaxed
 color: $fastn.color.main.error.text
