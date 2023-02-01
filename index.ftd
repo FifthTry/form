@@ -1,10 +1,10 @@
 -- import: fifthtry.github.io/form/assets
 -- import: fifthtry.github.io/package-doc/doc as pd
 
--- boolean is-mobile: false
+-- boolean $is-mobile: false
 
--- is-mobile:true
-if: $ftd.device == mobile
+-- $is-mobile:true
+if: { ftd.device == mobile }
 
 
 
@@ -20,13 +20,13 @@ We have designed these form elements using FTD for you.
 -- pd.package: `input-box` and it's Usage
 name: fifthtry.github.io/form
 
-To use `input-box` on your web package, add below into `FPM.ftd` file:
+To use `input-box` on your web package, add below into `FASTN.ftd` file:
 
 -- cb.code:
 lang: ftd
 
-\-- fpm.dependency: fifthtry.github.io/form as form
-\-- fpm.auto-import: form
+\-- fastn.dependency: fifthtry.github.io/form as form
+\-- fastn.auto-import: form
 
 
 
@@ -56,7 +56,7 @@ placeholder: Add title here
 
 
 
--- input-box: Title
+/-- input-box: Title
 $value: some default value
 $error: This field is mandatory
 placeholder: Add title here
@@ -80,7 +80,7 @@ label-top: true
 -- tf.h3: Output of above example:
 
 
--- input-box: Title
+/-- input-box: Title
 $value: some default value
 $error: This field is mandatory
 placeholder: Add title here
@@ -111,7 +111,7 @@ height: 100
 -- tf.h3: Output of above example:
 
 
--- input-box: Title
+/-- input-box: Title
 $value: some default value
 $error: This field is mandatory
 placeholder: Add title here
@@ -120,7 +120,7 @@ multiline: true
 height: 100
 
 
-
+-- end: ft.page
 
 
 
@@ -152,7 +152,7 @@ height: 100
 
 
 ;; Input Box with Label
--- ftd.column input-box:
+/-- ftd.column input-box:
 caption label:
 optional string placeholder:
 optional string $value:
@@ -161,23 +161,23 @@ boolean label-top: false
 boolean multiline: false
 string width: 400
 string height: 40
-margin-top: $fpm.space.space-6
-color: $fpm.color.main.text
+margin-top: $fastn.space.space-6
+color: $fastn.color.main.text
 width if $is-mobile: fill
 
---- ftd.row:
+/--- ftd.row:
 if: not $label-top
 width: fill
 
 ;; Input Box Label
---- ftd.text: $label
-role: $fpm.type.copy-tight
+/--- ftd.text: $label
+role: $fastn.type.copy-tight
 text-align: right
 min-width if not $is-mobile: 120
 min-width if $is-mobile: 100
 
 ;; Input Box
---- ftd.input:
+/--- ftd.input:
 placeholder: $placeholder
 padding-horizontal: 16
 padding-vertical: 8
@@ -185,27 +185,27 @@ width if not $is-mobile: $width
 width if $is-mobile: 200
 height: $height
 border-width: 1
-border-color: $fpm.color.main.border
+border-color: $fastn.color.main.border
 border-radius: 8
 multiline: $multiline
 $on-input$: $value=$VALUE
 $on-focus$: $error=
-role: $fpm.type.copy-tight
+role: $fastn.type.copy-tight
 
---- container: ftd.main
+/--- container: ftd.main
 
---- ftd.column:
+/--- ftd.column:
 if: $label-top
 width: fill
 spacing: 8
 
 ;; Input Box Label
---- ftd.text: $label
-role: $fpm.type.copy-tight
-padding-left if not $is-mobile: $fpm.space.space-2
+/--- ftd.text: $label
+role: $fastn.type.copy-tight
+padding-left if not $is-mobile: $fastn.space.space-2
 
 ;; Input Box
---- ftd.input:
+/--- ftd.input:
 placeholder: $placeholder
 padding-horizontal: 16
 padding-vertical: 8
@@ -213,28 +213,28 @@ width if not $is-mobile: $width
 width if $is-mobile: fill
 height: $height
 border-width: 1
-border-color: $fpm.color.main.border
+border-color: $fastn.color.main.border
 border-radius: 8
 multiline: $multiline
 $on-input$: $value=$VALUE
 $on-focus$: $error=
-role: $fpm.type.copy-tight
+role: $fastn.type.copy-tight
 
---- container: ftd.main
+/--- container: ftd.main
 
 ;; input error
---- ftd.text: $error
+/--- ftd.text: $error
 if: not $is-mobile
-role: $fpm.type.copy-relaxed
-padding-left if not $is-mobile: $fpm.space.space-2
-color: $fpm.color.main.error.text
-margin-top: $fpm.space.space-1
+role: $fastn.type.copy-relaxed
+padding-left if not $is-mobile: $fastn.space.space-2
+color: $fastn.color.main.error.text
+margin-top: $fastn.space.space-1
 
---- container: ftd.main
+/--- container: ftd.main
 
 ;; input error
---- ftd.text: $error
+/--- ftd.text: $error
 if: $is-mobile
-role: $fpm.type.copy-relaxed
-color: $fpm.color.main.error.text
-margin-top: $fpm.space.space-1
+role: $fastn.type.copy-relaxed
+color: $fastn.color.main.error.text
+margin-top: $fastn.space.space-1
