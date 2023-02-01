@@ -20,13 +20,13 @@ We have designed these form elements using FTD for you.
 -- pd.package: `input-box` and it's Usage
 name: fifthtry.github.io/form
 
-To use `input-box` on your web package, add below into `FPM.ftd` file:
+To use `input-box` on your web package, add below into `FASTN.ftd` file:
 
 -- cb.code:
 lang: ftd
 
-\-- fpm.dependency: fifthtry.github.io/form as form
-\-- fpm.auto-import: form
+\-- fastn.dependency: fifthtry.github.io/form as form
+\-- fastn.auto-import: form
 
 
 
@@ -161,8 +161,8 @@ boolean label-top: false
 boolean multiline: false
 string width: 400
 string height: 40
-margin-top: $fpm.space.space-6
-color: $fpm.color.main.text
+margin-top: $fastn.space.space-6
+color: $fastn.color.main.text
 width if $is-mobile: fill
 
 --- ftd.row:
@@ -171,7 +171,7 @@ width: fill
 
 ;; Input Box Label
 --- ftd.text: $label
-role: $fpm.type.copy-tight
+role: $fastn.type.copy-tight
 text-align: right
 min-width if not $is-mobile: 120
 min-width if $is-mobile: 100
@@ -185,12 +185,12 @@ width if not $is-mobile: $width
 width if $is-mobile: 200
 height: $height
 border-width: 1
-border-color: $fpm.color.main.border
+border-color: $fastn.color.main.border
 border-radius: 8
 multiline: $multiline
 $on-input$: $value=$VALUE
 $on-focus$: $error=
-role: $fpm.type.copy-tight
+role: $fastn.type.copy-tight
 
 --- container: ftd.main
 
@@ -201,8 +201,8 @@ spacing: 8
 
 ;; Input Box Label
 --- ftd.text: $label
-role: $fpm.type.copy-tight
-padding-left if not $is-mobile: $fpm.space.space-2
+role: $fastn.type.copy-tight
+padding-left if not $is-mobile: $fastn.space.space-2
 
 ;; Input Box
 --- ftd.input:
@@ -213,28 +213,28 @@ width if not $is-mobile: $width
 width if $is-mobile: fill
 height: $height
 border-width: 1
-border-color: $fpm.color.main.border
+border-color: $fastn.color.main.border
 border-radius: 8
 multiline: $multiline
 $on-input$: $value=$VALUE
 $on-focus$: $error=
-role: $fpm.type.copy-tight
+role: $fastn.type.copy-tight
 
 --- container: ftd.main
 
 ;; input error
 --- ftd.text: $error
 if: not $is-mobile
-role: $fpm.type.copy-relaxed
-padding-left if not $is-mobile: $fpm.space.space-2
-color: $fpm.color.main.error.text
-margin-top: $fpm.space.space-1
+role: $fastn.type.copy-relaxed
+padding-left if not $is-mobile: $fastn.space.space-2
+color: $fastn.color.main.error.text
+margin-top: $fastn.space.space-1
 
 --- container: ftd.main
 
 ;; input error
 --- ftd.text: $error
 if: $is-mobile
-role: $fpm.type.copy-relaxed
-color: $fpm.color.main.error.text
-margin-top: $fpm.space.space-1
+role: $fastn.type.copy-relaxed
+color: $fastn.color.main.error.text
+margin-top: $fastn.space.space-1
